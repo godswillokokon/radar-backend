@@ -1,7 +1,8 @@
+import mongoose from 'mongoose'
 import Cloudinary from 'cloudinary'
 const httpStatus = require('http-status')
 const { omit } = require('lodash')
-const Transacttion = require('../models/transaction.model')
+const Transaction = require('../models/transaction.model')
 const { handler: errorHandler } = require('../middlewares/error')
 Cloudinary.config({
   cloud_name: 'soundit-africa',
@@ -13,18 +14,17 @@ exports.get = (req, res) => res.json(req.locals.user.transform())
 
 exports.create = async (req, res, next) => {
   try {
-    const { body: fields, files } = ctx.request
-    console.log(req.locals.user)
+    const { body: fields, files } = req
     const user = mongoose.Types.ObjectId(req.locals.user._id)
     if (files.length) {
-      const imageUpload = files.map(async image => {
+      const imageUpload = await Promise.all(files.map(async image => {
         const uploadImages = await Cloudinary.v2.uploader.upload(image.path, {
           secure: true,
           sign_url: true,
           type: 'authenticated'
         })
         return uploadImages.public_id
-      })
+      }))
       const payload = {
         ...fields,
         user,
