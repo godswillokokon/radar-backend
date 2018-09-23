@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema({
     trim: true,
     lowercase: true,
   },
+  active: {type: Boolean, default: true},
   mobile: {
     type: Number,
     required: true,

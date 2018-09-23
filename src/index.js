@@ -1,3 +1,5 @@
+require("babel-register");
+require("babel-polyfill");
 // make bluebird default Promise
 Promise = require('bluebird'); // eslint-disable-line no-global-assign
 const { port, env } = require('./config/vars');
