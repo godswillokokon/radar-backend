@@ -50,7 +50,7 @@ router.route('/register')
  * @apiGroup Auth
  * @apiPermission public
  *
- * @apiParam  {String}         email     User's email
+ * @apiParam  {String}         mobile     User's mobile
  * @apiParam  {String{..128}}  password  User's password
  *
  * @apiSuccess  {String}  token.tokenType     Access Token's type
@@ -63,6 +63,7 @@ router.route('/register')
  * @apiSuccess  {String}  user.id             User's id
  * @apiSuccess  {String}  user.name           User's name
  * @apiSuccess  {String}  user.email          User's email
+ * @apiSuccess  {String}  user.mobile          User's mobile
  * @apiSuccess  {String}  user.role           User's role
  * @apiSuccess  {Date}    user.createdAt      Timestamp
  *
@@ -81,7 +82,7 @@ router.route('/login')
  * @apiGroup Auth
  * @apiPermission public
  *
- * @apiParam  {String}  email         User's email
+ * @apiParam  {String}  mobile         User's mobile number
  * @apiParam  {String}  refreshToken  Refresh token aquired when user logged in
  *
  * @apiSuccess {String}  tokenType     Access Token's type

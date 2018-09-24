@@ -104,3 +104,13 @@ exports.remove = (req, res, next) => {
     .then(() => res.status(httpStatus.NO_CONTENT).end())
     .catch(e => next(e));
 };
+
+
+exports.verify = (req, res, next) => {
+  const { user } = req.locals;
+  if(user) {
+    return res.send('Verified');
+  } else {
+    return res.sendStatus(403);
+  }
+}
