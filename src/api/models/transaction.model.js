@@ -13,7 +13,7 @@ const transactionSchema = new mongoose.Schema(
     status: {
       type: String,
       enum: ['VERIFYING', 'SUCCESS', 'CAUTION'],
-      required: true
+      default: 'VERIFYING'
     }
   },
   {
