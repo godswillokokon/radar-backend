@@ -1,0 +1,41 @@
+{
+  "name": "radar-backend",
+  "description": "",
+  "scripts": {},
+  "env": {
+    "NODE_ENV": {
+      "required": true
+    },
+    "PORT": {
+      "required": true
+    },
+    "JWT_SECRET": {
+      "required": true
+    },
+    "JWT_EXPIRATION_DAYS": {
+      "required": true
+    },
+    "MONGO_URI": {
+      "required": true
+    },
+    "MONGO_URI_TESTS": {
+      "required": true
+    },
+    "CLOUDINARY_API_KEY": {
+      "required": true
+    },
+    "CLOUDINARY_API_SECRET": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
