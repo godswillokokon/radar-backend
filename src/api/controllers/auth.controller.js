@@ -29,6 +29,7 @@ exports.register = async (req, res, next) => {
     res.status(httpStatus.CREATED);
     return res.json({ token, user: userTransformed });
   } catch (error) {
+    console.log(error);
     return next(User.checkDuplicateMobile(error));
   }
 };

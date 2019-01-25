@@ -15,6 +15,7 @@ Cloudinary.config({
 exports.get = (req, res) => res.json(req.locals.user.transform())
 
 exports.create = async (req, res, next) => {
+  console.log(req.body, '---');
   try {
     const { body: fields, files } = req
     const user = mongoose.Types.ObjectId(req.locals.user._id)

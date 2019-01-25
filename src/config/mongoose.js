@@ -26,5 +26,6 @@ exports.connect = () => {
     keepAlive: 1,
     useMongoClient: true,
   });
+  mongoose.set("useCreateIndex", true);
   return mongoose.connection;
 };

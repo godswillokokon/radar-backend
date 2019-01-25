@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
   },
   active: {type: Boolean, default: true},
   mobile: {
-    type: Number,
+    type: String,
     required: true,
     unique: true,
     trim: true
@@ -41,8 +41,8 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     maxlength: 128,
-    index: true,
     trim: true,
+    unique: true
   },
   services: {
     facebook: String,
