@@ -12,7 +12,14 @@ Cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
-exports.get = (req, res) => res.json(req.locals.user.transform())
+exports.get = async (req, res) => {
+  const getUserTransactions = await Transaction.find({
+    user: req.locals.user._id
+  }).lean().exec();
+  console.log(getUserTransactions);
+  res.json(getUserTransactions)
+
+}
 
 exports.create = async (req, res, next) => {
   console.log(req.body, '---');

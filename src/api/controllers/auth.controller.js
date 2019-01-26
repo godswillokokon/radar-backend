@@ -23,6 +23,7 @@ function generateTokenResponse(user, accessToken) {
  */
 exports.register = async (req, res, next) => {
   try {
+    console.log(req.body);
     const user = await (new User(req.body)).save();
     const userTransformed = user.transform();
     const token = generateTokenResponse(user, user.token());

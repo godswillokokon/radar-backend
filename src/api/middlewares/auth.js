@@ -14,6 +14,7 @@ const handleJWT = (req, res, next, roles) => async (err, user, info) => {
     status: httpStatus.UNAUTHORIZED,
     stack: error ? error.stack : undefined,
   });
+  console.log(req.headers, user, error);
 
   try {
     if (error || !user) throw error;
